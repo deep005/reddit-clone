@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import routes from './routes';
 
 
-mongoose.connect('mongodb://localhost/27017/reddit', () => {
+mongoose.connect('mongodb://localhost:27017/27017', () => {
     console.log('Connected to mongodb');
 })
  const app = express();
