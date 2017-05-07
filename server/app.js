@@ -1,9 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+
 import routes from './routes';
 
-//Controller imports
-import basicController from './Controller/basicCtrl';
 
 mongoose.connect('mongodb://localhost/27017/reddit', () => {
     console.log('Connected to mongodb');
@@ -11,6 +11,7 @@ mongoose.connect('mongodb://localhost/27017/reddit', () => {
  const app = express();
 
 //Middleware
+app.use(bodyParser.json());
 
-app.use('/api', basicController.get);
+app.use('/api', routes);
 export default app;
